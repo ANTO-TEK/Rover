@@ -1,0 +1,728 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   100 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "B1_state"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "B1_state"\
+      SrcLocation  ""\
+      Dimensions   [1,7]\
+    }\
+    ChartData {\
+      Name         "B1_intention"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "B1_intention"\
+      SrcLocation  ""\
+      Dimensions   [1,3]\
+    }\
+    ChartData {\
+      Name         "to_delete"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "to_delete"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "MIN_NORMAL_TEMP"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "MIN_NORMAL_TEMP"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "MAX_NORMAL_TEMP"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "MAX_NORMAL_TEMP"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "B2_state"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "B2_state"\
+      SrcLocation  ""\
+      Dimensions   [1,10]\
+    }\
+    ChartData {\
+      Name         "B2_intention"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "B2_intention"\
+      SrcLocation  ""\
+      Dimensions   [1,3]\
+    }\
+    ChartData {\
+      Name         "step"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "step"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "current_state"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.current_state"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "next_state"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.next_state"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "has_retransmitted"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.has_retransmitted"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "braking"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.braking"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "rpm_motors"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.rpm_motors"\
+      SrcLocation  ""\
+      Dimensions   [1,4]\
+    }\
+    ChartData {\
+      Name         "motors_direction"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.motors_direction"\
+      SrcLocation  ""\
+      Dimensions   [1,2]\
+    }\
+    ChartData {\
+      Name         "obstacle_distances"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.obstacle_distances"\
+      SrcLocation  ""\
+      Dimensions   [1,3]\
+    }\
+    ChartData {\
+      Name         "temperature_B1"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.temperature_B1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temperature_B2"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.temperature_B2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "y_analog"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.y_analog"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "x_analog"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.x_analog"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "control_buttons"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.control_buttons"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "control_value"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.control_value"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "encoder_status"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.encoder_status"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temperature_status"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.temperature_status"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "mpu_status"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.mpu_status"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "joypad_status"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.joypad_status"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "sabertooth_status"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.sabertooth_status"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "degraded"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_1.degraded"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "has_retransmitted"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.has_retransmitted"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "current_state"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.current_state"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "braking"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.braking"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "rpm_motors"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.rpm_motors"\
+      SrcLocation  ""\
+      Dimensions   [1,4]\
+    }\
+    ChartData {\
+      Name         "motors_direction"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.motors_direction"\
+      SrcLocation  ""\
+      Dimensions   [1,2]\
+    }\
+    ChartData {\
+      Name         "obstacle_distances"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.obstacle_distances"\
+      SrcLocation  ""\
+      Dimensions   [1,3]\
+    }\
+    ChartData {\
+      Name         "temperature_B1"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.temperature_B1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temperature_B2"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.temperature_B2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "accX"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.accX"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "gyroZ"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.gyroZ"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "y_analog"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.y_analog"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "x_analog"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.x_analog"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "control_buttons"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.control_buttons"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "control_value"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.control_value"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "next_state"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.next_state"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "encoder_status"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.encoder_status"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temperature_status"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.temperature_status"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "mpu_status"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.mpu_status"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "joypad_status"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.joypad_status"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "sabertooth_status"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.sabertooth_status"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "degraded"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.degraded"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "EMERGENCY_STOP_MASK"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.EMERGENCY_STOP_MASK"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "obstacle"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "BOARD_2.obstacle"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "sfEvent"\
+      Description  "ActiveChartEvent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_c3_Rover"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_BOARD_1"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_BOARD_1"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_UPDATE_FIRMWARE"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.UPDATE_FIRMWARE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_UPDATE_FIRMWARE"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.UPDATE_FIRMWARE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_COMMUNICATION_DECISION"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.COMMUNICATION_DECISION"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_COMMUNICATION"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.COMMUNICATION_DECISION.COMMUNICATION"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_COMMUNICATION"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.COMMUNICATION_DECISION.COMMUNICATION"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_WAITING_FOR_RTR"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.COMMUNICATION_DECISION.WAITING_FOR_RTR"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_WAITING_FOR_RTR"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.COMMUNICATION_DECISION.WAITING_FOR_RTR"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_TEMPERATURE_CONTROLLER"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.COMMUNICATION_DECISION.TEMPERATURE_CONTROLLER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_TEMPERATURE_CONTROLLER"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.COMMUNICATION_DECISION.TEMPERATURE_CONTROLLER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_LED_CONTROLLER"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.LED_CONTROLLER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_LED_CONTROLLER"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.LED_CONTROLLER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_BOTH"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.LED_CONTROLLER.BOTH"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_RIGHT"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.LED_CONTROLLER.SINGLE.RIGHT"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_RIGHT"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.LED_CONTROLLER.SINGLE.RIGHT"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_LEFT"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.LED_CONTROLLER.SINGLE.LEFT"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_LEFT"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_1.WORKING.LED_CONTROLLER.SINGLE.LEFT"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_BOARD_2"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_BOARD_2"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_UPDATE_FIRMWARE"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.UPDATE_FIRMWARE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_UPDATE_FIRMWARE"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.UPDATE_FIRMWARE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_COMMUNICATION_DECISION"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.COMMUNICATION_DECISION"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_COMMUNICATION"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.COMMUNICATION_DECISION.COMMUNICATION"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_COMMUNICATION"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.COMMUNICATION_DECISION.COMMUNICATION"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_WAITING_FOR_RTR"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.COMMUNICATION_DECISION.WAITING_FOR_RTR"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_WAITING_FOR_RTR"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.COMMUNICATION_DECISION.WAITING_FOR_RTR"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_TEMPERATURE_CONTROLLER"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.COMMUNICATION_DECISION.TEMPERATURE_CONTROLLER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_TEMPERATURE_CONTROLLER"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.COMMUNICATION_DECISION.TEMPERATURE_CONTROLLER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_EXECUTION"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.EXECUTION"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_EXECUTION"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.EXECUTION"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_MODE"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.EXECUTION.DRIVE.MODE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_MODE"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.EXECUTION.DRIVE.MODE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_EXECUTE"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.EXECUTION.DRIVE.EXECUTE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_EXECUTE"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.EXECUTION.DRIVE.EXECUTE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_MOVE"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.EXECUTION.DRIVE.EXECUTE.MOVE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_ALT_BACKWARD"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.EXECUTION.DRIVE.EXECUTE.MOVE.ALT_BACKWARD"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_STOP"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.EXECUTION.DRIVE.EXECUTE.MOVE.STOP"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_HARD_STOP"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.EXECUTION.DRIVE.EXECUTE.MOVE.STOP.HARD_STOP"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_SINGLE_BOARD"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.SINGLE_BOARD"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_SINGLE_BOARD"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "BOARD_2.WORKING.SINGLE_BOARD"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i2"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i3"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i4"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i5"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i6"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i7"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
