@@ -3,7 +3,7 @@ P.U.O.R.C. (Perceptive Ultrasound Operative Rover Companion): a real-time and sa
 
 Delighted to present our university project, a groundbreaking ROVER designed for real-time and safety-critical applications! 🌐⚙️
 
-🔍 High-Level Functional Specifications:
+## 🔍 High-Level Functional Specifications:
 
 1. Receives external commands from the PS2 controller.
 2. Adaptable in analog and digital command modes.
@@ -21,5 +21,6 @@ Delighted to present our university project, a groundbreaking ROVER designed for
 14. Halts on immediate identification of component malfunction for utmost safety.
 15. Degrades to a limited-speed mode on specific safety-critical malfunctions.
 
-🔧 Real-Time System Excellence:
+## 🔧 Real-Time System Excellence:
+
 Embarking on a journey into the realm of real-time robotics, our project emphasizes meticulous planning, robust functionality, and advanced features. Excited to share the developments as we navigate the intricate landscape of real-time and safety-critical applications! 🤖⏱️
